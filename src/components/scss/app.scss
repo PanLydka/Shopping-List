@@ -1,0 +1,21 @@
+@import "~flexboxgrid/dist/flexboxgrid.min.css";
+
+body {
+  background-color: #db9833;
+}
+
+.container {
+  color: white;
+
+  .header {
+    margin-bottom: 50px;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+    font-weight: 700;
+    font-size: 3em;
+  }
+
+  .foodUserContainer {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+  }
+}
