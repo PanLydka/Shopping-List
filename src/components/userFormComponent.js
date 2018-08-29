@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
 import { addProduct } from "./../actions";
 
-let userFormComponent = props => {
+let UserFormComponent = props => {
   const { handleSubmit } = props;
   return (
     <form onSubmit={handleSubmit}>
@@ -21,9 +21,9 @@ let userFormComponent = props => {
   );
 };
 
-userFormComponent = reduxForm({
-  form: "userFormComponent"
-})(userFormComponent);
+UserFormComponent = reduxForm({
+  form: "UserFormComponent"
+})(UserFormComponent);
 
 const mapStateToProps = () => {
   return {};
@@ -33,7 +33,7 @@ const mapDispatchToProps = dispatch => ({
   onSubmit: data => dispatch(addProduct(data))
 });
 
-export default (userFormComponent = connect(
+export default (UserFormComponent = connect(
   mapStateToProps,
   mapDispatchToProps
-)(userFormComponent));
+)(UserFormComponent));
