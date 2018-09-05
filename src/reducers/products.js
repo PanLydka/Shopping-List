@@ -1,20 +1,42 @@
 const initialState = {
-  byId: [0],
-  byHash: {
-    0: {
-      id: 0,
-      content: { nameProduct: "chleb", categoryProduct: "pieczywo" }
-    }
-  }
+  byId: [],
+  byHash: {},
+  lastId: 0
 };
 
 export const products = (state = initialState, action) => {
-  const id = state.byId.length;
   switch (action.type) {
     case "ADD_PRODUCT":
+      const newId = state.lastId + 1;
+
       return {
-        byId: [...state.byId, id],
-        byHash: { ...state.byHash, [id]: { id: id, content: action.data } }
+        byId: [...state.byId, newId],
+        byHash: {
+          ...state.byHash,
+          [newId]: {
+            id: newId,
+            content: action.data
+          }
+        },
+        lastId: newId
+      };
+    case "REMOVE_PRODUCT":
+      const { [action.id]: deletedValue, ...newStateRemove } = state.byHash;
+      const idInteger = parseInt(action.id);
+      return {
+        byId: state.byId.filter(value => value !== idInteger),
+        byHash: newStateRemove,
+        lastId: state.lastId
+      };
+    case "EDIT_PRODUCT":
+      const newStateEdit = {
+        ...state.byHash,
+        [action.id]: { id: action.id, content: action.data }
+      };
+      return {
+        byId: state.byId,
+        byHash: newStateEdit,
+        lastId: state.lastId
       };
     default:
       return state;

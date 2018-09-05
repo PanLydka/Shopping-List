@@ -1,22 +1,23 @@
 import React from "react";
 import "./components/scss/app.scss";
-import { connect } from "react-redux";
-import UserFormComponent from "./components/userFormComponent";
-import { ListProductsComponent } from "./components/ListProductsComponent";
+import FormProduct from "./containers/FormProduct";
+import { ListProducts } from "./containers/ListProducts";
+import { addProduct } from "./actions/index";
 
 class App extends React.Component {
   render() {
     return (
-      <div className="container">
-        <h1 className="col-sm-6 col-sm-offset-3 header"> Lista zakupów</h1>
-        <div className="row foodUserContainer">
-          <div className="foodList col-sm-8">
-            Twoja lista:
-            <ListProductsComponent products={this.props.products} />
+      <div className="container ">
+        <h1 className="col-sm-12 header"> Lista zakupów</h1>
+        <div className="row">
+          <div className="col-sm-7">
+            <h2> Twoja lista: </h2>
+            <p>Produkty z listy możesz edytowa klikając na nie!</p>
+            <ListProducts />
           </div>
-          <div className="userPanel col-sm-4 value">
-            Dodaj nowe:
-            <UserFormComponent onSubmit={this.submit} />
+          <div className="col-sm-4 offset-sm-1">
+            <h2> Dodaj nowy product: </h2>{" "}
+            <FormProduct typeAction="addProduct" />
           </div>
         </div>
       </div>
@@ -24,13 +25,4 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return state;
-};
-
-const mapDispatchToProps = {};
-
-export const AppContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;

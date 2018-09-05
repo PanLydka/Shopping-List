@@ -1,16 +1,28 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, subscribe } from "redux";
 import reducers from "./reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
+import { loadState, saveState } from "./localStorage";
+import throttle from "lodash/throttle";
 
 const options = {
   actionsBlacklist: ["redux-form"]
 };
 
-const defaultState = {};
+const persistedtState = loadState();
 const composeEnhancers = composeWithDevTools(options);
 
-export const store = createStore(
+let store = createStore(
   reducers,
-  defaultState,
+  persistedtState,
   composeEnhancers(applyMiddleware())
 );
+
+store.subscribe(
+  throttle(() => {
+    saveState({
+      products: store.getState().products
+    });
+  }, 1000)
+);
+
+export default store;
