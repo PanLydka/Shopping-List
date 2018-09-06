@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { removeProduct } from "../actions/index";
 
 const indent = {
-  textIndent: "40px"
+  width: "70%"
 };
 
 class ListProductsComponentContainer extends React.Component {
@@ -67,7 +67,7 @@ class ListProductsComponentContainer extends React.Component {
           group.stationery === undefined
             ? null
             : Object.values(group.stationery),
-        color: "bg-dark",
+        color: "bg-white",
         displayName: "artykuły papiernicze: "
       }
     };
@@ -77,7 +77,7 @@ class ListProductsComponentContainer extends React.Component {
     const products = this.productsLoad(this.props);
     const { remove, showEdit } = this.props;
     return (
-      <div className="pt-4">
+      <div className="pt-4 pb-4">
         {Object.keys(products).map((item, i) => (
           <React.Fragment key={i}>
             {products[item].data !== null ? (
@@ -99,7 +99,7 @@ class ListProductsComponentContainer extends React.Component {
         ))}
         {isEmpty(this.props.products.byId) ? (
           <h3 className="pt-5" style={indent}>
-            Witaj we własnym menadrzeże! Twoje produkty zapiszą się w Twojej
+            Witaj we własnym menadżerze! Twoje produkty zapiszą się w Twojej
             przeglądarce.
           </h3>
         ) : null}

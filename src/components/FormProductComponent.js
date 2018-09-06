@@ -20,7 +20,7 @@ const FormProductComponent = ({ handleSubmit, initialValues }) => {
           component="select"
           className="form-control form-control-lg"
         >
-          <option />
+          <option value="undefined" />
           <option value="bread">pieczywo</option>
           <option value="groceries">produkt spożywczy</option>
           <option value="sweets">słodycze</option>
@@ -31,15 +31,15 @@ const FormProductComponent = ({ handleSubmit, initialValues }) => {
         </Field>
       </div>
       <div className="form-group">
-        <label htmlFor="purchaseDate"> Do kiedy </label>
+        <label htmlFor="extraInfo"> Dodatkowe informacje </label>
         <Field
           type="details"
-          name="purchaseDate"
+          name="extraInfo"
           component="textarea"
           className="form-control form-control-lg"
         />
       </div>
-      <button className="btn btn-primary" type="submit">
+      <button className="btn btn-primary mb-2" type="submit">
         Zapisz
       </button>
     </form>
