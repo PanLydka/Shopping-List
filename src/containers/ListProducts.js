@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { ListProductsComponent } from "../components/ListProductsComponent";
 import FormProduct from "./FormProduct";
 import { Modal, Dialog, Button } from "react-bootstrap";
-import "./../components/scss/modal.scss";
 
 class ListProductsContainer extends React.Component {
   constructor(props) {
