@@ -1,5 +1,5 @@
 import FormProductComponent from "../components/FormProductComponent";
-import { reduxForm } from "redux-form";
+import { reduxForm, reset } from "redux-form";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { addProduct, editProduct } from "./../actions/index";
@@ -17,6 +17,7 @@ const mapStateToProps = (dispatch, ownProps, state) => {
       };
 
       dispatch(callbacks[ownProps.typeAction]);
+      dispatch(reset("FormProductComponent"));
 
       if (typeof ownProps.close === "function") ownProps.close();
     }
