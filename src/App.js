@@ -2,12 +2,11 @@ import React from "react";
 import "./components/scss/app.scss";
 import FormProduct from "./containers/FormProduct";
 import { ListProducts } from "./containers/ListProducts";
-import { addProduct } from "./actions/index";
 
 class App extends React.Component {
   render() {
     return (
-      <div className="container ">
+      <div className="container">
         <h1 className="col-sm-12 header"> Lista zakupów</h1>
         <div className="row">
           <div className="col-sm-7">
@@ -15,7 +14,7 @@ class App extends React.Component {
             <p>Produkty z listy możesz edytowa klikając na nie!</p>
             <ListProducts />
           </div>
-          <div className="col-sm-4 offset-sm-1">
+          <div className="col-sm-4 offset-sm-1 ">
             <h2> Dodaj nowy product: </h2>{" "}
             <FormProduct typeAction="addProduct" />
           </div>
