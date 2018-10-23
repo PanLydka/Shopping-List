@@ -20,9 +20,6 @@ class ListProductsComponentContainer extends React.Component {
       return {};
     }
 
-    if (props.byId === null) {
-      alert("b");
-    }
     const group = groupBy(
       Object.values(props.products.byHash),
       product => product.content.categoryProduct
